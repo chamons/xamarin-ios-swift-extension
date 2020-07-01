@@ -136,13 +136,6 @@
             <DependentUpon>ViewController.cs</DependentUpon>
         </Compile>
     </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\TodayTestExtension\TodayTestExtension.csproj">
-        <IsAppExtension>true</IsAppExtension>
-        <Project>{DA106922-0D8F-4E63-BA94-99B49D353DFC}</Project>
-        <Name>TodayTestExtension</Name>
-      </ProjectReference>
-    </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
     <Target Name="ExtendAppExtensionReferences" AfterTargets="_ResolveAppExtensionReferences">
     	<ItemGroup>
