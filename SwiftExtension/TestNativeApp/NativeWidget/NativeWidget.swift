@@ -46,7 +46,10 @@ struct NativeWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        HStack {
+            Text("Xamarin.iOS + SwiftUI")
+            Text(entry.date, style: .time)
+        }
     }
 }
 
