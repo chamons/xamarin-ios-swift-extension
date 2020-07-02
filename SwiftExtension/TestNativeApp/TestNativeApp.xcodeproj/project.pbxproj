@@ -20,6 +20,7 @@
 		429AB1CF24ABA40600D106F0 /* NativeWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 429AB1CA24ABA40600D106F0 /* NativeWidget.intentdefinition */; };
 		429AB1D224ABA40600D106F0 /* NativeWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 429AB1C124ABA40600D106F0 /* NativeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		429AB22F24ABA5F400D106F0 /* NativeWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 429AB1CA24ABA40600D106F0 /* NativeWidget.intentdefinition */; };
+		429AB23224AD036100D106F0 /* TestDataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429AB23024AD035E00D106F0 /* TestDataReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,9 @@
 		429AB1CA24ABA40600D106F0 /* NativeWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = NativeWidget.intentdefinition; sourceTree = "<group>"; };
 		429AB1CB24ABA40600D106F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		429AB1CD24ABA40600D106F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		429AB23024AD035E00D106F0 /* TestDataReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataReader.swift; sourceTree = "<group>"; };
+		429AB23324AD123100D106F0 /* NativeWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeWidgetExtension.entitlements; sourceTree = "<group>"; };
+		429AB23424AD128800D106F0 /* TestNativeApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestNativeApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		429AB18124ABA3E400D106F0 = {
 			isa = PBXGroup;
 			children = (
+				429AB23324AD123100D106F0 /* NativeWidgetExtension.entitlements */,
 				429AB18C24ABA3E400D106F0 /* TestNativeApp */,
 				429AB1C724ABA40600D106F0 /* NativeWidget */,
 				429AB1C224ABA40600D106F0 /* Frameworks */,
@@ -106,6 +111,7 @@
 		429AB18C24ABA3E400D106F0 /* TestNativeApp */ = {
 			isa = PBXGroup;
 			children = (
+				429AB23424AD128800D106F0 /* TestNativeApp.entitlements */,
 				429AB18D24ABA3E400D106F0 /* AppDelegate.swift */,
 				429AB18F24ABA3E400D106F0 /* SceneDelegate.swift */,
 				429AB19124ABA3E400D106F0 /* ContentView.swift */,
@@ -141,6 +147,7 @@
 				429AB1CA24ABA40600D106F0 /* NativeWidget.intentdefinition */,
 				429AB1CB24ABA40600D106F0 /* Assets.xcassets */,
 				429AB1CD24ABA40600D106F0 /* Info.plist */,
+				429AB23024AD035E00D106F0 /* TestDataReader.swift */,
 			);
 			path = NativeWidget;
 			sourceTree = "<group>";
@@ -258,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				429AB1C924ABA40600D106F0 /* NativeWidget.swift in Sources */,
+				429AB23224AD036100D106F0 /* TestDataReader.swift in Sources */,
 				429AB22F24ABA5F400D106F0 /* NativeWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +414,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TestNativeApp/TestNativeApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TestNativeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VAA25J7DNH;
@@ -428,6 +437,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TestNativeApp/TestNativeApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TestNativeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VAA25J7DNH;
@@ -449,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NativeWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VAA25J7DNH;
@@ -472,6 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NativeWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VAA25J7DNH;

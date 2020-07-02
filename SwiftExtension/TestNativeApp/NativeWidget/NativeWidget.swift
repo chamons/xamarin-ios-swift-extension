@@ -10,35 +10,42 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
-    public func snapshot(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+    public func snapshot(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (DataEntry) -> ()) {
+        let entry = DataEntry(value: "0.0", delta: "0.0", date: Date(), configuration: configuration)
         completion(entry)
     }
 
     public func timeline(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        var entries: [DataEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
+        let jsonData = readTestData();
+        for entry in jsonData.data {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatter.date(from: entry.self.key);
+
+            entries.append(DataEntry(value: entry.value.value, delta: entry.value.delta, date: date!, configuration: configuration))
         }
-
+        
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct DataEntry: TimelineEntry {
+    public let value: String
+    public let delta: String
+    
     public let date: Date
     public let configuration: ConfigurationIntent
 }
 
 struct PlaceholderView : View {
     var body: some View {
-        Text("Placeholder View")
+        VStack {
+            Text("")
+        }
     }
 }
 
@@ -46,9 +53,11 @@ struct NativeWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        HStack {
+        VStack {
             Text("Xamarin.iOS + SwiftUI")
-            Text(entry.date, style: .time)
+            Text(entry.date, style: .date)
+            Text(entry.value)
+            Text(entry.delta)
         }
     }
 }
@@ -61,7 +70,7 @@ struct NativeWidget: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider(), placeholder: PlaceholderView()) { entry in
             NativeWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Xamarin.iOS Example")
+        .description("This is an example widget embedded in Xamarin.iOS Container.")
     }
 }
