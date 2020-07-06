@@ -139,23 +139,11 @@
             <DependentUpon>ViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="FakeData.cs" />
+	
+	<AdditionalAppExtensions Include="/Users/donblas/Projects/xamarin-ios-swift-extension/SwiftExtension/TestNativeApp">
+		<Name>NativeWidgetExtension</Name>
+		<BuildOutput>DerivedData/TestNativeApp/Build/Products/Debug-iphoneos</BuildOutput>
+	</AdditionalAppExtensions>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-    <Target Name="ExtendAppExtensionReferences" AfterTargets="_ResolveAppExtensionReferences">
-    	<ItemGroup>
-		<_ResolvedAppExtensionReferences Include="/Users/donblas/Projects/xamarin-ios-swift-extension/SwiftExtension/TestNativeApp/DerivedData/TestNativeApp/Build/Products/Debug-iphoneos/NativeWidgetExtension.appex" />
-	</ItemGroup>
-     </Target>
-
-     <Target Name="ForceSwiftCodesign" BeforeTargets="_CodesignAppBundle">
-	<PropertyGroup>
-		<_CodesignDisableTimestamp>False</_CodesignDisableTimestamp>
-		<_CodesignDisableTimestamp Condition="'$(_SdkIsSimulator)' == 'true' Or '$(MtouchDebug)' == 'true'">True</_CodesignDisableTimestamp>
-		<_FrameworkCodeSigningKey>$(_CodeSigningKey)</_FrameworkCodeSigningKey>
-		<_FrameworkCodeSigningKey Condition="'$(_FrameworkCodeSigningKey)' == ''">-</_FrameworkCodeSigningKey>
-	</PropertyGroup>
-
-	<Codesign Condition="'$(IsMacEnabled)' == 'true'" SessionId="$(BuildSessionId)" ToolExe="$(CodesignExe)" ToolPath="$(CodesignPath)" CodesignAllocate="$(_CodesignAllocate)" DisableTimestamp="$(_CodesignDisableTimestamp)" Keychain="$(CodesignKeychain)" Resources="$(_AppBundlePath)\PlugIns\NativeWidgetExtension.appex" SigningKey="$(_FrameworkCodeSigningKey)" ExtraArgs="--entitlements /Users/donblas/Projects/xamarin-ios-swift-extension/SwiftExtension/TestNativeApp/DerivedData/TestNativeApp/Build/Intermediates.noindex/TestNativeApp.build/Debug-iphoneos/NativeWidgetExtension.build/NativeWidgetExtension.appex.xcent">
-	</Codesign>
-     </Target>
 </Project>

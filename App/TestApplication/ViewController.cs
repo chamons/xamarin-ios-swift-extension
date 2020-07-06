@@ -25,9 +25,8 @@ namespace TestApplication
 			NSUrl url = NSFileManager.DefaultManager.GetContainerUrl ("group.com.xamarin.sample.TestApplication");
 			url = url.Append ("testAppState.json", false);
 			System.IO.File.WriteAllText (url.Path, TestData.GetJson ());
-			text.Text = "After";
 
-			text.Text = System.IO.File.Exists (url.Path) ? ("Exists - " + url.Path) : "??";
+			text.Text = "After";
 		}
 
 		public override void DidReceiveMemoryWarning ()
