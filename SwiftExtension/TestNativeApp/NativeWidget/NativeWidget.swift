@@ -10,12 +10,16 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
-    public func snapshot(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (DataEntry) -> ()) {
+    public func placeholder(in context: Context) -> DataEntry {
+        return DataEntry(value: "0.0", delta: "0.0", date: Date(), configuration: Provider.Intent.init())
+    }
+    
+    public func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (DataEntry) -> Void) {
         let entry = DataEntry(value: "0.0", delta: "0.0", date: Date(), configuration: configuration)
         completion(entry)
     }
-
-    public func timeline(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    
+    public func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<DataEntry>) -> Void) {
         var entries: [DataEntry] = []
 
         let jsonData = readTestData();
@@ -31,6 +35,9 @@ struct Provider: IntentTimelineProvider {
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
+    
+    typealias Entry = DataEntry
+    typealias Intent = ConfigurationIntent
 }
 
 struct DataEntry: TimelineEntry {
@@ -67,10 +74,11 @@ struct NativeWidget: Widget {
     private let kind: String = "NativeWidget"
 
     public var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider(), placeholder: PlaceholderView()) { entry in
+        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             NativeWidgetEntryView(entry: entry)
-        }
-        .configurationDisplayName("Xamarin.iOS Example")
-        .description("This is an example widget embedded in Xamarin.iOS Container.")
+            }
+            .configurationDisplayName("Xamarin.iOS Example")
+            .description("This is an example widget embedded in Xamarin.iOS Container.")
+            .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
