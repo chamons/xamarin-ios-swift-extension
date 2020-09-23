@@ -27,6 +27,7 @@
         <MtouchLink>None</MtouchLink>
         <MtouchDebug>true</MtouchDebug>
         <CodesignKey>iPhone Developer</CodesignKey>
+        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
         <DebugType>none</DebugType>
@@ -140,9 +141,10 @@
         </Compile>
         <Compile Include="FakeData.cs" />
 	
-	<AdditionalAppExtensions Include="/Users/donblas/Projects/xamarin-ios-swift-extension/SwiftExtension/TestNativeApp">
+	<AdditionalAppExtensions Include="$(MSBuildProjectDirectory)/../../SwiftExtension/TestNativeApp">
 		<Name>NativeWidgetExtension</Name>
-		<BuildOutput>DerivedData/TestNativeApp/Build/Products/Debug-iphoneos</BuildOutput>
+        <BuildOutput Condition="'$(Platform)' == 'iPhone'">DerivedData/TestNativeApp/Build/Products/Debug-iphoneos</BuildOutput>
+        <BuildOutput Condition="'$(Platform)' == 'iPhoneSimulator'">DerivedData/TestNativeApp/Build/Products/Debug-iphonesimulator</BuildOutput>
 	</AdditionalAppExtensions>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
