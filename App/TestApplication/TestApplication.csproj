@@ -141,10 +141,10 @@
         </Compile>
         <Compile Include="FakeData.cs" />
 	
-	<AdditionalAppExtensions Include="$(MSBuildProjectDirectory)/../../Projects/xamarin-ios-swift-extension/SwiftExtension/TestNativeApp">
+	<AdditionalAppExtensions Include="$(MSBuildProjectDirectory)/../../SwiftExtension/TestNativeApp">
 		<Name>NativeWidgetExtension</Name>
-        <BuildOutput Condition="'$(Platform)' == 'iPhone'">build/Debug-iphoneos</BuildOutput>
-        <BuildOutput Condition="'$(Platform)' == 'iPhoneSimulator'">build/Debug-iphonesimulator</BuildOutput>
+        <BuildOutput Condition="'$(Platform)' == 'iPhone'">DerivedData/TestNativeApp/Build/Products/Debug-iphoneos</BuildOutput>
+        <BuildOutput Condition="'$(Platform)' == 'iPhoneSimulator'">DerivedData/TestNativeApp/Build/Products/Debug-iphonesimulator</BuildOutput>
 	</AdditionalAppExtensions>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
