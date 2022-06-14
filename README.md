@@ -1,5 +1,5 @@
 # xamarin-ios-swift-extension
-Xamairn.iOS with Swift extension example project
+Microsoft.iOS / Xamairn.iOSwith Swift extension example project
 
 ### Handy tips for building this project
 
