@@ -141,7 +141,7 @@
         </Compile>
         <Compile Include="FakeData.cs" />
 	
-	<AdditionalAppExtensions Include="$(MSBuildProjectDirectory)/../../SwiftExtension/TestNativeApp">
+	<AdditionalAppExtensions Include="$(MSBuildProjectDirectory)/../../../SwiftExtension/TestNativeApp">
 		<Name>NativeWidgetExtension</Name>
         <BuildOutput Condition="'$(Platform)' == 'iPhone'">DerivedData/TestNativeApp/Build/Products/Debug-iphoneos</BuildOutput>
         <BuildOutput Condition="'$(Platform)' == 'iPhoneSimulator'">DerivedData/TestNativeApp/Build/Products/Debug-iphonesimulator</BuildOutput>

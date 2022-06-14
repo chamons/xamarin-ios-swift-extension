@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-ios</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>iOS Team Provisioning Profile: com.xamarin.sample.TestApplication</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalAppExtensions Include="$(MSBuildProjectDirectory)/../../../SwiftExtension/TestNativeApp">
+      <Name>NativeWidgetExtension</Name>
+      <BuildOutput Condition="'$(ComputedPlatform)' == 'iPhone'">DerivedData/TestNativeApp/Build/Products/Debug-iphoneos</BuildOutput>
+      <BuildOutput Condition="'$(ComputedPlatform)' == 'iPhoneSimulator'">DerivedData/TestNativeApp/Build/Products/Debug-iphonesimulator</BuildOutput>
+    </AdditionalAppExtensions>
+  </ItemGroup>
+</Project>
