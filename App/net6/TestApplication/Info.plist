@@ -38,5 +38,14 @@
     </array>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+    <key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.xamarin.sample.TestApplication.UpdateWidget</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+        <string>fetch</string>
+		<string>processing</string>
+	</array>
 </dict>
 </plist>
