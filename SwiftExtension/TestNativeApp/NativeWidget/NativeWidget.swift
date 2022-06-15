@@ -32,7 +32,7 @@ struct Provider: IntentTimelineProvider {
             entries.append(DataEntry(value: entry.value.value, delta: entry.value.delta, date: date!, configuration: configuration))
         }
         
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let timeline = Timeline(entries: entries, policy: .after (Date().addingTimeInterval(15 * 60)))
         completion(timeline)
     }
     
