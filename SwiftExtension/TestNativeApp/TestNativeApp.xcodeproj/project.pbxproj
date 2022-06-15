@@ -18,7 +18,7 @@
 		429AB1C924ABA40600D106F0 /* NativeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429AB1C824ABA40600D106F0 /* NativeWidget.swift */; };
 		429AB1CC24ABA40600D106F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 429AB1CB24ABA40600D106F0 /* Assets.xcassets */; };
 		429AB1CF24ABA40600D106F0 /* NativeWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 429AB1CA24ABA40600D106F0 /* NativeWidget.intentdefinition */; };
-		429AB1D224ABA40600D106F0 /* NativeWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 429AB1C124ABA40600D106F0 /* NativeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		429AB1D224ABA40600D106F0 /* NativeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 429AB1C124ABA40600D106F0 /* NativeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		429AB22F24ABA5F400D106F0 /* NativeWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 429AB1CA24ABA40600D106F0 /* NativeWidget.intentdefinition */; };
 		429AB23224AD036100D106F0 /* TestDataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429AB23024AD035E00D106F0 /* TestDataReader.swift */; };
 /* End PBXBuildFile section */
@@ -34,15 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		429AB1D624ABA40700D106F0 /* Embed App Extensions */ = {
+		429AB1D624ABA40700D106F0 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				429AB1D224ABA40600D106F0 /* NativeWidgetExtension.appex in Embed App Extensions */,
+				429AB1D224ABA40600D106F0 /* NativeWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -162,7 +162,7 @@
 				429AB18624ABA3E400D106F0 /* Sources */,
 				429AB18724ABA3E400D106F0 /* Frameworks */,
 				429AB18824ABA3E400D106F0 /* Resources */,
-				429AB1D624ABA40700D106F0 /* Embed App Extensions */,
+				429AB1D624ABA40700D106F0 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -198,7 +198,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					429AB18924ABA3E400D106F0 = {
 						CreatedOnToolsVersion = 12.0;
