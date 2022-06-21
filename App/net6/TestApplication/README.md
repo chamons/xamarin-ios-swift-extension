@@ -1,6 +1,6 @@
 # NET6 iOS Sample
 
-This sample has multiple improvements over the legacy Xamarin.iOS samp,le:
+This sample has multiple improvements over the legacy Xamarin.iOS sample:
 
 ## Background Widget Updates
 
