@@ -16,4 +16,6 @@
       <BuildOutput Condition="'$(ComputedPlatform)' == 'iPhoneSimulator'">DerivedData/TestNativeApp/Build/Products/Debug-iphonesimulator</BuildOutput>
     </AdditionalAppExtensions>
   </ItemGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)CompileSwift.targets" />
 </Project>

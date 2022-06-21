@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Runtime.InteropServices;
 
 namespace TestApplication;
 
@@ -9,7 +10,10 @@ public class AppDelegate : UIApplicationDelegate {
 		set;
 	}
 
-	SimpleBackgroundTask WidgetUpdateTask;
+    [DllImport ("__Internal", EntryPoint = "ReloadWidgets")]
+    public extern static int ReloadWidgets ();
+
+	SimpleBackgroundTask? WidgetUpdateTask;
 
 	// This Application uses BGAppRefreshTaskRequest via a SimpleBackgroundTask wrapper
 	// to serialize state in a shared json file stored in a container that is accessible by 
@@ -55,6 +59,7 @@ public class AppDelegate : UIApplicationDelegate {
 		NSUrl url = NSFileManager.DefaultManager.GetContainerUrl ("group.com.xamarin.sample.TestApplication");
 		url = url.Append ("testAppState.json", false);
 		System.IO.File.WriteAllText (url.Path, TestData.GetJson ());
+		ReloadWidgets ();
 	}
 }
 
