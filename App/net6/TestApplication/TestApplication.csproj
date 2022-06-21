@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
-    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion>14.0</SupportedOSPlatformVersion>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>iOS Team Provisioning Profile: com.xamarin.sample.TestApplication</CodesignProvision>

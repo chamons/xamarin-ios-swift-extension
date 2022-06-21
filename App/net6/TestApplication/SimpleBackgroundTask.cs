@@ -1,9 +1,5 @@
-using System.Text.Json;
 using BackgroundTasks;
-
-#if DEBUG
 using System.Runtime.InteropServices;
-#endif
 
 namespace TestApplication;
 
@@ -38,7 +34,7 @@ public class SimpleBackgroundTask
         if (EarliestBeginDate != null) {
             request.EarliestBeginDate = EarliestBeginDate;
         }
-		BGTaskScheduler.Shared.Submit (request, out NSError error);
+		BGTaskScheduler.Shared.Submit (request, out NSError? error);
 
         if (Verbose) {
             if (error != null) {
@@ -66,7 +62,7 @@ public class SimpleBackgroundTask
 	}
 
 #if DEBUG // Apple will reject application which include _simulateLaunchForTaskWithIdentifier selector
-    public async void ScheduleForceRefresh (int ms)
+    public void ScheduleForceRefresh (int ms)
     {
         Task.Run(async () => {
             await Task.Delay(ms);

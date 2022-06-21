@@ -35,15 +35,19 @@ public class AppDelegate : UIApplicationDelegate {
 		vc.View!.AddSubview (new UILabel (Window!.Frame) {
 			BackgroundColor = UIColor.SystemBackground,
 			TextAlignment = UITextAlignment.Center,
-			Text = "Task Scheduled!",
+			Text = $"Loaded",
 			AutoresizingMask = UIViewAutoresizing.All,
 		});
 		Window.RootViewController = vc;
 
 		// make the window visible
 		Window.MakeKeyAndVisible ();
-
 		return true;
+	}
+
+	public override void DidEnterBackground (UIApplication application)
+	{
+		WriteWidgetState ();
 	}
 
 	void WriteWidgetState ()
